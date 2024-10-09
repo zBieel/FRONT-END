@@ -3,7 +3,6 @@ import { login } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -19,17 +18,8 @@ const Login = () => {
 
       const decodedToken = jwtDecode(token);
       console.log('Token Decodificado:', decodedToken)
-      const { roles } = decodedToken;
 
-      console.log('roles:', roles);
-
-      if (roles == 'ROLE_FUNCIONARIO') {
-        navigate('/funcionario');
-      } else if (roles == 'ROLE_CLIENTE') {
-        navigate('/cliente');
-      } else {
-        setError('Tipo de usuário desconhecido.');
-      }
+      navigate('/home'); 
     } catch (error) {
       console.error('Erro no login:', error);
       setError('Falha no login. Verifique suas credenciais.');
