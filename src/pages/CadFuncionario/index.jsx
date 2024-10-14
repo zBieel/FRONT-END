@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify"; // Importando ToastContainer e toast
-import 'react-toastify/dist/ReactToastify.css'; // Importando os estilos do Toast
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import './usuario.css';
 import api from "../../services/api";
 import Header from "../Header";
@@ -18,10 +18,10 @@ const Usuario = () => {
         tipoUsuario: "Funcionario",
       });
       console.log(response.data);
-      toast.success("Usuário cadastrado com sucesso!"); // Notificação de sucesso
+      toast.success("Usuário cadastrado com sucesso!");
     } catch (error) {
       console.log(error);
-      toast.error("Erro ao cadastrar usuário. Tente novamente."); // Notificação de erro
+      toast.error("Erro ao cadastrar usuário. Tente novamente.");
     }
   };
 
