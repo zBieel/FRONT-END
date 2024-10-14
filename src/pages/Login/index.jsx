@@ -20,7 +20,7 @@ const Login = () => {
       const decodedToken = jwtDecode(token);
       console.log('Token Decodificado:', decodedToken)
 
-      navigate('/'); 
+      navigate('/home'); 
     } catch (error) {
       console.error('Erro no login:', error);
       setError('Falha no login. Verifique suas credenciais.');

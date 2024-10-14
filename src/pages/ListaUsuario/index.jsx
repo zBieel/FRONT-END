@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import './listausuario.css';
 import api from "../../services/api";
+import Header from "../Header";
 
 const DataList = () => {
   const [data, setData] = useState([]);
@@ -58,7 +59,9 @@ const DataList = () => {
   if (error) return <p className="message error">Erro: {error}</p>;
 
   return (
+    <><Header />
     <div className="list-container"> {/* Adicionando a classe do container */}
+      
       <ul>
         {data.map(item => (
           <li key={item.id}>
@@ -73,7 +76,7 @@ const DataList = () => {
         ))}
       </ul>
       <ToastContainer />
-    </div>
+    </div></>
   );
 };
 

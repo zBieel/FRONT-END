@@ -4,18 +4,18 @@ import { ToastContainer, toast } from "react-toastify"; // Importando ToastConta
 import 'react-toastify/dist/ReactToastify.css'; // Importando os estilos do Toast
 import './usuario.css';
 import api from "../../services/api";
+import Header from "../Header";
 
 const Usuario = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      const response = await api.post("users", {
+      const response = await api.post("users/funcionario", {
         nome: data.nome,
         email: data.email,
         senha: data.senha,
         tipoUsuario: "Funcionario",
-        sobrenome: "null"
       });
       console.log(response.data);
       toast.success("Usuário cadastrado com sucesso!"); // Notificação de sucesso
@@ -25,8 +25,9 @@ const Usuario = () => {
     }
   };
 
-  return (
+  return (<><Header />
     <div className="app-container">
+      
       <form onSubmit={handleSubmit(onSubmit)} className="form-group">
         <div>
           <label>Nome</label>
@@ -66,7 +67,7 @@ const Usuario = () => {
         </div>
       </form>
       <ToastContainer />
-    </div>
+    </div></>
   );
 };
 

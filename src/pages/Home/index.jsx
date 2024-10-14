@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './home.css';
-import api from "../../services/api";
+import Header from '../Header';
 
 function Home(){
 
     return(
-           
         <div>
+            <Header />
             <div class="slogan">
             <h1>Agende o sucesso do seu negócio</h1>
         </div>
