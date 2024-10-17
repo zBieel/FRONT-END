@@ -4,8 +4,9 @@ function Header(){
 
     return(
             <header>
-                <a href="/home" className="logo"><img src="./src/assets/LogoBranca.png" alt="" className='imgLogo'/></a>
-                <a href="/lista" className="lista">Listar Usuario</a>
+                <a className="logo"><img src="./src/assets/LogoBranca.png" className='imgLogo'/></a>
+                <a href="/listaCliente" className="lista">Listar Clientes</a>
+                <a href="/listaFuncionario" className="lista">Listar Usuario</a>
                 <a href="/CadFuncionario" className="usuario">Cadastro Funcionario</a>
             </header>
     )

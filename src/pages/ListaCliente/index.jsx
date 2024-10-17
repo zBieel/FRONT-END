@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import './listausuario.css';
+import './listaCliente.css';
 import api from "../../services/api";
 import Header from "../Header";
 
@@ -11,7 +11,7 @@ const DataList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    api.get("users")
+    api.get("users/cliente")
       .then(response => {
         console.log(response.data);
         setData(response.data);
@@ -29,7 +29,7 @@ const DataList = () => {
         <span>Tem certeza que deseja excluir este item?</span>
         <button 
           onClick={() => confirmDelete(id)} 
-          className="confirm-button" // Adicionando a classe de estilo
+          className="confirm-button"
         >
           Confirmar
         </button>
@@ -60,7 +60,7 @@ const DataList = () => {
 
   return (
     <><Header />
-    <div className="list-container"> {/* Adicionando a classe do container */}
+    <div className="list-container">
       
       <ul>
         {data.map(item => (
@@ -69,6 +69,12 @@ const DataList = () => {
             <br />
             <br />
             {item.email}
+            <br />
+            <br />
+            {item.telefone}
+            <br />
+            <br />
+            {item.mensagem}
             <br />
             <br />
             <button onClick={() => handleDelete(item.id)} className="delete-button">Excluir</button>

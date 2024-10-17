@@ -3,6 +3,8 @@ import React, { useState, useEffect} from 'react';
 import { login } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,16 +16,12 @@ const Login = () => {
     e.preventDefault();
     try {
       const token = await login(email, senha);
-
       localStorage.setItem('token', token)
-
       const decodedToken = jwtDecode(token);
       console.log('Token Decodificado:', decodedToken)
-
-      navigate('/home'); 
+      navigate('/cadFuncionario');
     } catch (error) {
-      console.error('Erro no login:', error);
-      setError('Falha no login. Verifique suas credenciais.');
+      toast.error('Falha no login. Verifique suas credenciais.');
     }
   };
 
@@ -64,6 +62,7 @@ const Login = () => {
           </span>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }
