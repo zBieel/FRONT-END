@@ -65,16 +65,16 @@ const DataList = () => {
       <ul>
         {data.map(item => (
           <li key={item.id}>
-            {item.nome}
+              <strong>Nome:</strong> {item.nome}
+              <br />
+            <br />
+            <strong>Email:</strong> {item.email}
             <br />
             <br />
-            {item.email}
+              <strong>Telefone:</strong> {item.telefone}
             <br />
             <br />
-            {item.telefone}
-            <br />
-            <br />
-            {item.mensagem}
+            <strong>Mensagem:</strong> {item.mensagem}
             <br />
             <br />
             <button onClick={() => handleDelete(item.id)} className="delete-button">Excluir</button>
