@@ -105,9 +105,16 @@ const ListarAgendamentos = () => {
   return (
     <>
       <Header />
-      <a href="/AgendamentoForm" className="cad-agenda">Novo Agendamento</a>
+      <div className="container">
+        <div className="header-container">
+        <h1>Agendamentos</h1>
+        <div className="button-container">
+      <a href="/AgendamentoForm" className="cad-funcionario">Novo Agendamento</a>
+      <button className="logout-button" onClick={handleLogout}>Sair</button>
+      </div>
+    </div>
+
       <div className="list-container">
-        <h2>Agendamentos</h2>
         {editingAgendamento ? (
           <div className="edit-form">
             <h2>Editar Agendamento</h2>
@@ -150,7 +157,9 @@ const ListarAgendamentos = () => {
             <button onClick={() => setEditingAgendamento(null)} className="cancel-button">Cancelar</button>
           </div>
         ) : (
-          <ul>
+          <>
+          <h2>Clientes agendados</h2>
+          <ul className="user-list">
             {agendamento.length > 0 ? (
               agendamento.map((agendamento) => (
                 <li key={agendamento.id}>
@@ -165,7 +174,6 @@ const ListarAgendamentos = () => {
                   <strong>Horário:</strong> {agendamento.horarioAgendamento}
                   <button onClick={() => handleEdit(agendamento)} className="edit-button">Editar</button>
                   <button onClick={() => handleDelete(agendamento.id)} className="delete-button">Excluir</button>
-                  <button className="logout-button" onClick={handleLogout}>Sair</button>
                 </li>
               ))
             ) : (
@@ -174,8 +182,10 @@ const ListarAgendamentos = () => {
               </tr>
             )}
           </ul>
-        )}
-        <ToastContainer />
+        </>
+      )}
+      </div>
+      <ToastContainer />
       </div>
     </>
   );

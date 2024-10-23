@@ -69,30 +69,35 @@ const DataList = () => {
     <>
       <Header />
       <div className="container">
-        <div className="list-container">
-          <ul>
-            {data.map(item => (
-              <li key={item.id}>
-                <div className="user-info">
-                  <strong>Nome:</strong> {item.nome}
-                  <br />
-                  <strong>Email:</strong> {item.email}
-                  <br />
-                  <strong>Telefone:</strong> {item.telefone}
-                  <br />
-                  <strong>Mensagem:</strong> {item.mensagem}
-                </div>
-                <div className="action-buttons">
-                  <button onClick={() => handleDelete(item.id)} className="delete-button">
-                    Excluir
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="header-container">
+          <h1>Formulários de Clientes</h1>
+          <div className="button-container">
           <button className="logout-button" onClick={handleLogout}>Sair</button>
-          <ToastContainer />
-        </div>
+          </div>
+          </div>
+
+          <div className="list-container">
+            <h2>Lista de Formulários</h2>
+            <ul className="user-list">
+              {data.map(item => (
+                <li key={item.id}>
+                  <div className="user-info">
+                    <strong>Nome:</strong> {item.nome}
+                    <br />
+                    <strong>Email:</strong> {item.email}
+                    <br />
+                    <strong>Telefone:</strong> {item.telefone}
+                    <br />
+                    <strong>Mensagem:</strong> {item.mensagem}
+                  </div>
+                  <div className="action-buttons">
+                    <button onClick={() => handleDelete(item.id)} className="delete-button">Excluir</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        <ToastContainer />
       </div>
     </>
   );

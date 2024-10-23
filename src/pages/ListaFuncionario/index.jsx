@@ -10,28 +10,20 @@ const DataList = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [formData, setFormData] = useState({ nome: "", email: "" });
   const [editingUser, setEditingUser] = useState(null);
+  const [formData, setFormData] = useState({ nome: "", email: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await api.get('users/funcionario', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+    api.get("users/funcionario")
+      .then(response => {
         setData(response.data);
         setLoading(false);
-      } catch (error) {
+      })
+      .catch(error => {
         setError(error.message);
         setLoading(false);
-      }
-    };
-
-    fetchData();
+      });
   }, []);
 
   const handleLogout = () => {
@@ -54,28 +46,21 @@ const DataList = () => {
     );
   };
 
-  const confirmDelete = async (id) => {
-    try {
-      const token = localStorage.getItem('token');
-      await api.delete(`users/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+  const confirmDelete = (id) => {
+    api.delete(`users/${id}`)
+      .then(() => {
+        setData(data.filter(item => item.id !== id));
+        toast.success("Usuário excluído com sucesso!");
+      })
+      .catch(error => {
+        setError(error.message);
+        toast.error("Erro ao excluir o usuário.");
       });
-      setData(data.filter(item => item.id !== id));
-      toast.success("Usuário excluído com sucesso!");
-    } catch (error) {
-      setError(error.message);
-      toast.error("Erro ao excluir o usuário.");
-    }
   };
 
   const handleEdit = (user) => {
     setEditingUser(user);
-    setFormData({
-      nome: user.nome,
-      email: user.email
-    });
+    setFormData({ nome: user.nome, email: user.email });
   };
 
   const handleInputChange = (e) => {
@@ -83,21 +68,17 @@ const DataList = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleUpdate = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      await api.put(`users/${editingUser.id}`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+  const handleUpdate = (id) => {
+    api.put(`users/${id}`)
+      .then(() => {
+        setData(data.map(item => item.id === editingUser.id ? { ...item, ...formData } : item));
+        setEditingUser(null);
+        toast.success("Usuário atualizado com sucesso!");
+      })
+      .catch(error => {
+        setError(error.message);
+        toast.error("Erro ao atualizar o usuário.");
       });
-      setData(data.map(item => item.id === editingUser.id ? { ...item, ...formData } : item));
-      setEditingUser(null);
-      toast.success("Usuário atualizado com sucesso!");
-    } catch (error) {
-      setError(error.message);
-      toast.error("Erro ao atualizar o usuário.");
-    }
   };
 
   if (loading) return <p className="message">Carregando...</p>;
