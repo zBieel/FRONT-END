@@ -28,8 +28,8 @@ const Usuario = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/'); // Redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   return (
@@ -72,7 +72,6 @@ const Usuario = () => {
           </div>
           <div>
             <button className="criar-conta" type="submit">Criar Conta</button>
-            {/* <button className="logout-button" onClick={handleLogout}>Sair</button> */}
           </div>
         </form>
         <ToastContainer />

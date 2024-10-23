@@ -1,98 +1,87 @@
-/* Resetando margin e padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Estilos gerais */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eef2f3; /* Fundo claro e suave */
+  background-color: #eef2f3;
   color: #333;
 }
 
-/* Estilo do container principal */
 .container {
   max-width: 1200px;
-  margin: 30px auto; /* Centraliza o container */
+  margin: 30px auto;
   padding: 20px;
 }
 
-/* Estilos para o container da lista */
 .list-container {
   max-width: 2000px;
   margin-top: 25px;
   padding: 20px;
-  background-color: #353535; /* Fundo escuro para contrastar */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  border-radius: 10px; /* Bordas arredondadas */
+  background-color: #353535;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-/* Estilos para a lista */
 ul {
-  list-style-type: none; 
-  padding: 0; 
+  list-style-type: none;
+  padding: 0;
 }
 
-/* Estilos para os itens da lista */
 li {
-  padding: 15px; 
-  margin: 10px 0; 
-  background-color: #f9f9f9; 
-  border: 1px solid #ddd; 
-  border-radius: 10px; 
-  transition: background-color 0.3s ease; 
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
-/* Aumentando o tamanho da fonte para os dados dos clientes */
 .user-info {
-  font-size: 20px; /* Aumentando o tamanho da fonte */
-  margin-bottom: 10px; /* Espaçamento inferior para separar os dados */
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-/* Estilo ao passar o mouse sobre um item da lista */
 li:hover {
-  background-color: #e9ecef; 
+  background-color: #e9ecef;
 }
 
-/* Estilo para mensagens de carregamento e erro */
 .message {
-  text-align: center; 
-  font-size: 18px; 
+  text-align: center;
+  font-size: 18px;
 }
 
 .message.error {
-  color: #dc3545; 
+  color: #dc3545;
 }
 
-/* Estilo para o botão de logout */
 .logout-button {
   position: fixed;
-  bottom: 20px; /* Distância do rodapé */
-  right: 20px;  /* Distância da lateral direita */
+  bottom: 20px;
+  right: 20px;
   padding: 10px 25px;
-  background-color: #a00202; 
-  color: white; 
-  border-radius: 25px; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  background-color: #a00202;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
-  background-color: #ff5549; 
+  background-color: #ff5549;
 }
 
-/* Estilo para o botão de exclusão */
 .delete-button {
-  padding: 8px 12px; 
-  background-color: #dc3545; /* Cor de fundo */
-  color: #fff; /* Cor do texto */
-  border-radius: 4px; /* Borda arredondada */
-  cursor: pointer; /* Cursor de ponteiro */
-  transition: background-color 0.3s ease; /* Transição suave */
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .delete-button:hover {
-  background-color: #c82333; /* Cor ao passar o mouse */
+  background-color: #c82333;
 }

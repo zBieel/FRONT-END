@@ -46,8 +46,8 @@ const ListaAgendamento = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/'); // Redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   const confirmDelete = (id) => {

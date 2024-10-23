@@ -1,199 +1,184 @@
-/* Resetando margin e padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Estilos gerais */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eef2f3; /* Fundo claro e suave */
+  background-color: #eef2f3;
   color: #333;
 }
 
-/* Estilo do container principal */
 .container {
   max-width: 1200px;
-  margin: 30px auto; /* Centraliza o container */
+  margin: 30px auto;
   padding: 20px;
-  background-color: #353535; /* Fundo escuro para contrastar */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  background-color: #353535;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para o header */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+  margin-bottom: 20px;
 }
 
 .header-container h1 {
   font-size: 28px;
-  color: #0050a0; /* Azul mais escuro para destaque */
+  color: #0050a0;
 }
 
-/* Estilo para o container de botões */
 .button-container {
-  display: flex; /* Usar flexbox para alinhar os botões */
-  gap: 15px; /* Espaço entre os botões */
+  display: flex;
+  gap: 15px;
 }
 
-/* Estilo para o botão de cadastrar funcionário */
 .cad-funcionario {
-  padding: 12px 24px; 
-  background: #007bff; /* Azul moderno */
-  color: #fff; 
-  border: none; 
-  border-radius: 25px; 
-  text-decoration: none; 
-  font-weight: bold; 
-  font-size: 16px; 
-  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s; 
-  cursor: pointer; 
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Sombra sutil */
+  padding: 12px 24px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 .cad-funcionario:hover {
-  background: #0056b3; /* Azul mais escuro ao passar o mouse */
+  background: #0056b3;
 }
 
-/* Estilo para o botão de logout */
 .logout-button {
-  padding: 12px 24px; 
-  background-color: #a00202; 
-  color: #fff; 
-  border: none; 
-  border-radius: 25px; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  padding: 12px 24px;
+  background-color: #a00202;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
-  background-color: #ff5549; 
+  background-color: #ff5549;
 }
 
-/* Estilos para a lista */
 .list-container {
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 ul {
-  list-style-type: none; 
-  padding: 0; 
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-  padding: 15px; 
-  margin: 10px 0; 
-  background-color: #f9f9f9; 
-  border: 1px solid #ddd; 
-  border-radius: 10px; 
-  transition: background-color 0.3s ease; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Aumentando o tamanho da fonte para os dados dos funcionários */
 .user-info {
-  font-size: 20px; /* Aumentando o tamanho da fonte */
-  margin-bottom: 10px; /* Espaçamento inferior para separar os dados */
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 li:hover {
-  background-color: #e9ecef; 
+  background-color: #e9ecef;
 }
 
-/* Estilos para o formulário de edição */
 .edit-form {
-  margin-bottom: 20px; 
-  padding: 20px; 
-  background-color: #a7a7a7; 
-  border-radius: 10px; 
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #a7a7a7;
+  border-radius: 10px;
 }
 
-/* Estilo para os campos do formulário */
 .edit-form input {
-  width: 100%; 
-  padding: 10px; 
-  margin: 15px 0; /* Aumentando o espaçamento entre os campos */
-  border: 1px solid #ccc; 
-  border-radius: 4px; 
-  transition: border-color 0.3s ease; 
-  font-size: 18px; /* Aumentando o tamanho da fonte nos campos de entrada */
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  font-size: 18px;
 }
 
-/* Estilo para os botões dentro do formulário */
 .update-button,
 .cancel-button {
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 25px; 
-  color: #fff; 
-  cursor: pointer; 
-  margin-right: 10px; 
-  transition: background-color 0.3s ease; 
-  font-size: 16px; /* Aumentando o tamanho da fonte dos botões */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
 }
 
 .update-button {
-  background-color: #28a745; /* Verde para atualizar */
+  background-color: #28a745;
 }
 
 .update-button:hover {
-  background-color: #218838; 
+  background-color: #218838;
 }
 
 .cancel-button {
-  background-color: #dc3545; /* Vermelho para cancelar */
+  background-color: #dc3545;
 }
 
 .cancel-button:hover {
-  background-color: #c82333; 
+  background-color: #c82333;
 }
 
-/* Estilo para os botões de ação na lista */
 .action-buttons {
-  display: flex; 
-  gap: 10px; 
+  display: flex;
+  gap: 10px;
 }
 
-/* Botões de editar e excluir */
 .edit-button {
-  padding: 8px 15px; 
-  background-color: #007bff; 
-  color: #fff; 
-  border: none; 
-  border-radius: 20px; 
-  cursor: pointer; 
-  transition: background-color 0.3s; 
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .edit-button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }
 
 .delete-button {
-  padding: 8px 15px; 
-  background-color: #dc3545; 
-  color: #fff; 
-  border: none; 
-  border-radius: 20px; 
-  cursor: pointer; 
-  transition: background-color 0.3s; 
+  padding: 8px 15px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .delete-button:hover {
-  background-color: #c82333; 
+  background-color: #c82333;
 }
 
-/* Estilo para mensagens de carregamento e erro */
 .message {
-  text-align: center; 
-  font-size: 18px; 
+  text-align: center;
+  font-size: 18px;
 }
 
 .message.error {
-  color: #dc3545; 
+  color: #dc3545;
 }

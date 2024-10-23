@@ -11,30 +11,27 @@ const Agendamento = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/login'); // Redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/login');
   };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Recuperar o token do localStorage
       const token = localStorage.getItem('token')
       const decodedToken = jwtDecode(token)
       const userId = decodedToken.id
 
-      // Configurar os dados para enviar ao backend
       const agendamentoData = {
         userId,
         dataAgendamento,
         dataHoraAgendamento           
       };
 
-      // Fazer a requisição ao backend com o token no cabeçalho
       const response = await api.post('/clientes/agendamento', agendamentoData, {
         headers: {
-          Authorization: `Bearer ${token}` // Enviando o token no cabeçalho
+          Authorization: `Bearer ${token}`
         }
       });
 

@@ -1,56 +1,54 @@
-/* Estilo padrão (tema claro) */
 body.light {
-    background-color: #fff; /* Define a cor de fundo para o tema claro */
-    color: #000; /* Define a cor do texto para o tema claro */
-  }
-  
-  body.dark {
-    background-color: #333; /* Define a cor de fundo para o tema escuro */
-    color: #fff; /* Define a cor do texto para o tema escuro */
-  }
-  
-  .logo {
-    max-width: 100%; /* Largura máxima da imagem do logo */
-    height: auto; /* Mantém a proporção da altura da imagem */
-    margin-bottom: 20px; /* Espaçamento inferior da imagem */
-    margin-left: 10px; /* Espaçamento à esquerda da imagem */
-  }
-  
-  body .form-group input[type="email"],
-  body .form-group input[type="password"] {
-    width: 100%; /* Largura total dos campos de entrada */
-    margin-bottom: 10px; /* Espaçamento inferior entre campos */
-    padding: 10px; /* Padding interno dos campos */
-    border: 1px solid #ccc; /* Borda dos campos */
-    border-radius: 20px; /* Borda arredondada dos campos */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
-  }
-  
-  body.dark .form-group input[type="email"],
-  body.dark .form-group input[type="password"] {
-    border: 1px solid #000000; /* Borda dos campos no tema escuro */
-    background-color: #000000; /* Cor de fundo dos campos no tema escuro */
-    color: #fff; /* Cor do texto dos campos no tema escuro */
-    width: 100%; /* Largura total dos campos de entrada no tema escuro */
-    margin-bottom: 10px; /* Espaçamento inferior entre campos no tema escuro */ 
-    padding: 10px; /* Padding interno dos campos no tema escuro */
-    border: 1px solid #ccc; /* Borda dos campos no tema escuro */
-    border-radius: 20px; /* Borda arredondada dos campos no tema escuro */
-    box-sizing: border-box; /* Inclui padding e borda na largura total no tema escuro */
-  }
-  
-  .form-group button:hover {
-    background-color: #79baff;
-  }
-  
-  .theme-toggle-button {
-    padding: 10px; /* Padding interno do botão de alternância de tema */
-    background-color: transparent; /* Fundo transparente do botão */
-    border: none; /* Remove a borda padrão do botão */
-    cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
-    font-size: 24px; /* Tamanho da fonte do ícone */
-    color: inherit; /* Herda a cor do texto atual */
-    position: fixed; /* Posiciona fixamente o botão */
-    bottom: 10px; /* Posiciona a 10px do fundo */
-    right: 10px; /* Posiciona a 10px da direita */
-  }
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+body .form-group input[type="email"],
+body .form-group input[type="password"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+body.dark .form-group input[type="email"],
+body.dark .form-group input[type="password"] {
+  border: 1px solid #000000;
+  background-color: #000000;
+  color: #fff;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.form-group button:hover {
+  background-color: #79baff;
+}
+
+.theme-toggle-button {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: inherit;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}

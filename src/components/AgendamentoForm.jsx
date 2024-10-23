@@ -3,7 +3,7 @@ import api from "./../services/api";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Header from "../pages/Header";
-import './agendamentoForm.css'; // Importe o CSS
+import './agendamentoForm.css';
 
 const AgendamentoForm = () => {
   const [nome, setNome] = useState('');
@@ -14,8 +14,8 @@ const AgendamentoForm = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/'); // Redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   const handleSubmit = async (e) => {
@@ -37,7 +37,7 @@ const AgendamentoForm = () => {
 
       const response = await api.post('/funcionarios/agendamento', agendamentoData, {
         headers: {
-          Authorization: `Bearer ${token}` // Enviando o token no cabeçalho
+          Authorization: `Bearer ${token}`
         }
       });
 
