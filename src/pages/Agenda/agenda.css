@@ -1,3 +1,13 @@
+.cad-agenda{
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px 14px;
+  color:rgb(255, 255, 255);
+  border-radius: 10px;
+  border: solid white;
+}
+
 /* Estilo para o botão de confirmação */
 .delete-button {
     padding: 8px 12px; /* Espaçamento interno do botão */

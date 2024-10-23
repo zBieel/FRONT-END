@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import './listaCliente.css';
+import './formulario.css';
 import api from "../../services/api";
 import Header from "../Header";
 
@@ -9,6 +10,12 @@ const DataList = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  };
 
   useEffect(() => {
     api.get("users/cliente")
@@ -59,30 +66,35 @@ const DataList = () => {
   if (error) return <p className="message error">Erro: {error}</p>;
 
   return (
-    <><Header />
-    <div className="list-container">
-      
-      <ul>
-        {data.map(item => (
-          <li key={item.id}>
-              <strong>Nome:</strong> {item.nome}
-              <br />
-            <br />
-            <strong>Email:</strong> {item.email}
-            <br />
-            <br />
-              <strong>Telefone:</strong> {item.telefone}
-            <br />
-            <br />
-            <strong>Mensagem:</strong> {item.mensagem}
-            <br />
-            <br />
-            <button onClick={() => handleDelete(item.id)} className="delete-button">Excluir</button>
-          </li>
-        ))}
-      </ul>
-      <ToastContainer />
-    </div></>
+    <>
+      <Header />
+      <div className="container">
+        <div className="list-container">
+          <ul>
+            {data.map(item => (
+              <li key={item.id}>
+                <div className="user-info">
+                  <strong>Nome:</strong> {item.nome}
+                  <br />
+                  <strong>Email:</strong> {item.email}
+                  <br />
+                  <strong>Telefone:</strong> {item.telefone}
+                  <br />
+                  <strong>Mensagem:</strong> {item.mensagem}
+                </div>
+                <div className="action-buttons">
+                  <button onClick={() => handleDelete(item.id)} className="delete-button">
+                    Excluir
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <button className="logout-button" onClick={handleLogout}>Sair</button>
+          <ToastContainer />
+        </div>
+      </div>
+    </>
   );
 };
 

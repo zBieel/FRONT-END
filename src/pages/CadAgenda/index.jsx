@@ -1,27 +1,46 @@
 import './cadAgenda.css';
-import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../services/api";
 import Header from "../Header";
+import React, { useState } from 'react';
 
 const Agendamento = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [dataHoraAgendamento, setDataHoraAgendamento] = useState('');
+  const navigate = useNavigate();
 
-  const onSubmit = async (data) => {
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    navigate('/login'); // Redireciona para a página de login
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      const response = await api.post("clientes/agendamento", {
-        nome: data.nome,
-        telefone: data.telefone,
-        email: data.email,
-        dataHora: data.dataHora,
+      // Recuperar o token do localStorage
+      const token = localStorage.getItem('token')
+      const decodedToken = jwtDecode(token)
+      const userId = decodedToken.id
+
+      // Configurar os dados para enviar ao backend
+      const agendamentoData = {
+        userId,
+        dataAgendamento,
+        dataHoraAgendamento           
+      };
+
+      // Fazer a requisição ao backend com o token no cabeçalho
+      const response = await api.post('/clientes/agendamento', agendamentoData, {
+        headers: {
+          Authorization: `Bearer ${token}` // Enviando o token no cabeçalho
+        }
       });
-      console.log(response.data);
-      toast.success("Agendamento realizado com sucesso!");
+
+      console.log('Agendamento realizado:', response.data);
     } catch (error) {
-      console.log(error);
-      toast.error("Erro ao realizar agendamento. Tente novamente.");
+      console.error('Erro ao agendar:', error);
     }
   };
 
@@ -29,7 +48,7 @@ const Agendamento = () => {
     <>
       <Header />
       <div className="app-container">
-        <form onSubmit={handleSubmit(onSubmit)} className="form-group">
+        <form onSubmit={handleSubmit} className="form-group">
           <div>
             <label>Nome</label>
             <input
@@ -47,7 +66,6 @@ const Agendamento = () => {
               {...register("telefone", { 
                 required: "Telefone é obrigatório.", 
                 pattern: { 
-                  value: /^[0-9]{10,11}$/, 
                   message: "Telefone inválido." 
                 }
               })}

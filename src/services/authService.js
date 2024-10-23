@@ -6,7 +6,7 @@ export const login = async (email, senha) => {
     const token = response.data.access_token; 
     localStorage.setItem('token', token); 
     console.log(token);
-    return token; 
+    return token;
   } catch (error) {
     throw error; 
   }

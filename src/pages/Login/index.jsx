@@ -12,7 +12,7 @@ const Login = () => {
   const [theme, setTheme] = useState('light');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     try {
       const token = await login(email, senha);

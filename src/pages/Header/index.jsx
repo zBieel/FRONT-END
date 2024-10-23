@@ -5,9 +5,9 @@ function Header(){
     return(
             <header>
                 <a className="logo"><img src="./src/assets/LogoBranca.png" className='imgLogo'/></a>
-                <a href="/listaCliente" className="lista">Formulários</a>
-                <a href="/listaFuncionario" className="lista">Funcionários</a>
-                <a href="/Agenda" className="usuario">Agenda</a>
+                <a href="/formulario" className="formulario">Formulários</a>
+                <a href="/listaFuncionario" className="lista-funcionario">Funcionários</a>
+                <a href="/Agenda" className="agenda">Agenda</a>
             </header>
     )
 

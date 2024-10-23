@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import './agenda.css';
 import api from "../../services/api";
@@ -9,6 +10,7 @@ const ListaAgendamento = () => {
   const [agendamentos, setAgendamentos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get("users/")
@@ -41,6 +43,11 @@ const ListaAgendamento = () => {
         draggable: false,
       }
     );
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    navigate('/'); // Redireciona para a página de login
   };
 
   const confirmDelete = (id) => {
@@ -84,7 +91,7 @@ const ListaAgendamento = () => {
   return (
     <>
       <Header />
-      <a href="/CadAgenda" className="usuario">Novo Agendamento</a>
+      <a href="/AgendamentoForm" className="cad-agenda">Novo Agendamento</a>
       <div className="list-container">
         <ul>
           {agendamentos.map(agendamento => (
@@ -98,8 +105,8 @@ const ListaAgendamento = () => {
               <strong>Data e Hora:</strong> {new Date(agendamento.dataHora).toLocaleString()}
               <br />
               <button onClick={() => handleEdit(item)} className="edit-button">Editar</button>
-
               <button onClick={() => handleDelete(agendamento.id)} className="delete-button">Excluir</button>
+              <button className="logout-button" onClick={handleLogout}>Sair</button>
             </li>
           ))}
         </ul>

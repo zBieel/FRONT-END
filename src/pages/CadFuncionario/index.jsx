@@ -1,13 +1,15 @@
-import './usuario.css';
+import './cadFuncionario.css';
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../services/api";
 import Header from "../Header";
 
 const Usuario = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -25,49 +27,57 @@ const Usuario = () => {
     }
   };
 
-  return (<><Header />
-    <div className="app-container">
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="form-group">
-        <div>
-          <label>Nome</label>
-          <input
-            type="text"
-            placeholder="Seu Nome"
-            {...register("nome", { required: "Nome é obrigatório." })}
-          />
-          {errors.nome && <span className="error">{errors.nome.message}</span>}
-        </div>
-        <div>
-          <label>E-mail</label>
-          <input
-            type="email"
-            placeholder="Seu Email"
-            {...register("email", { 
-              required: "E-mail é obrigatório.", 
-              pattern: { 
-                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, 
-                message: "E-mail inválido." 
-              } 
-            })}
-          />
-          {errors.email && <span className="error">{errors.email.message}</span>}
-        </div>
-        <div>
-          <label>Senha</label>
-          <input
-            type="password"
-            placeholder="Sua Senha"
-            {...register("senha", { required: "Senha é obrigatória." })}
-          />
-          {errors.senha && <span className="error">{errors.senha.message}</span>}
-        </div>
-        <div>
-          <button type="submit">Criar Conta</button>
-        </div>
-      </form>
-      <ToastContainer />
-    </div></>
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    navigate('/'); // Redireciona para a página de login
+  };
+
+  return (
+    <>
+      <Header />
+      <div className="app-container">
+        <form onSubmit={handleSubmit(onSubmit)} className="form-group">
+          <div>
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Seu Nome"
+              {...register("nome", { required: "Nome é obrigatório." })}
+            />
+            {errors.nome && <span className="error">{errors.nome.message}</span>}
+          </div>
+          <div>
+            <label>E-mail</label>
+            <input
+              type="email"
+              placeholder="Seu Email"
+              {...register("email", { 
+                required: "E-mail é obrigatório.", 
+                pattern: { 
+                  value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, 
+                  message: "E-mail inválido." 
+                } 
+              })}
+            />
+            {errors.email && <span className="error">{errors.email.message}</span>}
+          </div>
+          <div>
+            <label>Senha</label>
+            <input
+              type="password"
+              placeholder="Sua Senha"
+              {...register("senha", { required: "Senha é obrigatória." })}
+            />
+            {errors.senha && <span className="error">{errors.senha.message}</span>}
+          </div>
+          <div>
+            <button className="criar-conta" type="submit">Criar Conta</button>
+            {/* <button className="logout-button" onClick={handleLogout}>Sair</button> */}
+          </div>
+        </form>
+        <ToastContainer />
+      </div>
+    </>
   );
 };
 
