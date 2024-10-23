@@ -19,7 +19,13 @@ const Login = () => {
       localStorage.setItem('token', token)
       const decodedToken = jwtDecode(token);
       console.log('Token Decodificado:', decodedToken)
-      navigate('/cadFuncionario');
+      const { roles } = decodedToken;
+      console.log('roles:', roles)
+      if (roles == 'ROLE_FUNCIONARIO') {
+        navigate('/listaFuncionario');
+      } else {
+        toast.error('Tipo de usuário desconhecido')
+      }
     } catch (error) {
       toast.error('Falha no login. Verifique suas credenciais.');
     }

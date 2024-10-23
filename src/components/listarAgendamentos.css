@@ -1,0 +1,121 @@
+/* Estilo para o link de novo agendamento */
+.cad-agenda {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 5px 14px;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: solid white 2px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+.cad-agenda:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Leve mudança de fundo ao passar o mouse */
+  color: rgb(230, 230, 230); /* Alteração na cor do texto ao passar o mouse */
+}
+
+/* Estilo para o botão de confirmação */
+.delete-button {
+  padding: 8px 12px;
+  background-color: #a00202;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff5549;
+}
+
+/* Estilo para o botão de edição */
+.edit-button {
+  padding: 8px 12px;
+  background-color: #0050a0;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #3a8fd9;
+}
+
+/* Estilo geral do corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+}
+
+/* Estilo do container da lista */
+.list-container {
+  max-width: 2000px;
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #525252;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+}
+
+/* Estilos para a lista */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilo para os itens da lista */
+li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #525252;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo ao passar o mouse sobre um item da lista */
+li:hover {
+  background-color: #626262;
+}
+
+/* Estilo para mensagens de carregamento e erro */
+.message {
+  text-align: center;
+  color: #666;
+}
+
+.message.error {
+  color: #d40700;
+}
+
+/* Botões de confirmação de exclusão */
+.confirm-button, .cancel-button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+ 
