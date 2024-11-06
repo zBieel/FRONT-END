@@ -99,7 +99,7 @@ const DataList = () => {
         <div className="list-container">
           {editingUser ? (
             <div className="edit-form">
-              <h2>Editar Usuário</h2>
+              <h2>Editar Funcionário</h2>
               <input
                 type="text"
                 name="nome"

@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [theme, setTheme] = useState('light');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => { 
@@ -30,14 +29,6 @@ const Login = () => {
       toast.error('Falha no login. Verifique suas credenciais.');
     }
   };
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
 
   return (
     <div className="app-container">
@@ -63,9 +54,6 @@ const Login = () => {
         </div>
         <div className="form-group buttons-group">
           <button type="submit">Entrar</button>
-          <span onClick={toggleTheme} className="theme-toggle-button">
-            {theme === 'light' ? '🌙' : '☀️'}
-          </span>
         </div>
       </form>
       <ToastContainer />
